@@ -41,6 +41,12 @@ main() {
     rm -f "$tmp"
   fi
 
+  # Si la verificación principal fue exitosa, ejecutar escaneo de seguridad y enviar reporte
+  if [ $rc -eq 0 ]; then
+    # ejecutar escaneo (genera seguridad_reporte.html)
+    "$VENV_PY" "$LOGDIR/scan_security_drupal.py" >> "$LOG" 2>&1 || echo "[WARN] fallo al ejecutar scan_security_drupal.py" >> "$LOG"
+  fi
+
   return $rc
 }
 

@@ -48,5 +48,4 @@ Notas operativas:
 Control de versiones:
 - Trabajo en la rama `feature/logo-email`. Se creó un remoto `origin` apuntando a tu repo.
 
-¿Algo más que quieras documentar aquí (deploy, webhook, testing)?
 

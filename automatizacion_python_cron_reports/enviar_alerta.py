@@ -30,7 +30,6 @@ def send_mail(subject: str, body: str, recipients: list[str]):
     msg["Subject"] = subject
     msg.attach(MIMEText(body, "plain", "utf-8"))
 
-    # intentar enviar
     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=30)
     try:
         server.ehlo()
@@ -53,7 +52,6 @@ def main():
     load_dotenv()
     dests = [e.strip() for e in os.getenv("DESTINATARIOS", "").split(",") if e.strip()]
     if not dests:
-        # fallback: enviar a SMTP_USER
         smtp_user = os.getenv("SMTP_USER", "")
         if smtp_user:
             dests = [smtp_user]
