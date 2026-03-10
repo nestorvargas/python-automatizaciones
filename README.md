@@ -1,25 +1,52 @@
-# Primer programa en Python
+# Automatizaciones — Reportes y verificaciones
 
-Este pequeño proyecto contiene un ejemplo sencillo de programa en Python
-que saluda al usuario.
+Este repo contiene scripts para verificar sitios (Drupal y otros), generar
+reportes HTML y enviar notificaciones por correo. Está pensado para ejecutarse
+en un entorno virtual y desde cron.
 
-Archivos:
-- `modulo1.py`: script principal interactivo.
+Estructura principal:
+- `automatizacion_python_cron_reports/` — scripts de verificación y plantillas HTML.
+- `automatizacion_teams_meet_python/` — scripts de reportes de Teams (separado).
+- `modulo1.py` — ejemplo antiguo (no necesario para la automatización).
 
-Cómo ejecutar:
+Requisitos:
+- Python 3.8+
+- `pip install -r automatizacion_python_cron_reports/requirements.txt` (si existe)
 
-Desde la terminal dentro de la carpeta del proyecto:
+Instalación rápida (recomendada):
 
 ```bash
-python3 modulo1.py
+cd /ruta/al/proyecto
+python -m venv .venv
+source .venv/bin/activate
+pip install -r automatizacion_python_cron_reports/requirements.txt
 ```
 
-Ejemplo (entrada simulada):
+Variables de entorno:
+- Copia y edita `automatizacion_python_cron_reports/.env` con tus credenciales SMTP:
+	- `SMTP_SERVER`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`
+	- `REMITENTE`, `DESTINATARIOS` (comas separan múltiples destinatarios)
+
+Ejecutar manualmente (prueba):
 
 ```bash
-printf "Néstor\n" | python3 modulo1.py
+source .venv/bin/activate
+python automatizacion_python_cron_reports/verificar_drupal.py
 ```
 
-Descripción breve:
-- El script pide el nombre del usuario. Si se deja vacío, usa "mundo".
-- Imprime un saludo: "¡Hola, <nombre>!".
+Cron (ejemplo para ejecutar diariamente a las 08:00):
+
+```cron
+0 8 * * * cd /Users/tuusuario/…/curso-python && ./automatizacion_python_cron_reports/run_verificar_drupal.sh
+```
+
+Notas operativas:
+- Los reportes HTML se generan en `automatizacion_python_cron_reports/reporte_drupal.html`.
+- El script intenta insertar el logo del proyecto desde `automatizacion_python_cron_reports/logo_corbeta.jpg` (o SVG). Si existe, lo adjunta inline para máxima compatibilidad.
+- Hay un wrapper `run_verificar_drupal.sh` que hace rotación de logs y llama a `verificar_drupal.py`.
+
+Control de versiones:
+- Trabajo en la rama `feature/logo-email`. Se creó un remoto `origin` apuntando a tu repo.
+
+¿Algo más que quieras documentar aquí (deploy, webhook, testing)?
+

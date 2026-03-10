@@ -1,0 +1,21 @@
+# Entorno y dependencias
+.venv/
+env/
+.env
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
