@@ -5,6 +5,7 @@ Resumen
 Este directorio contiene scripts para generar reportes automáticos:
 - `verificar_sitios.py` — comprueba que los sitios listados estén en línea y valide el GTM.
 - `verificar_drupal.py` — detecta uso de Drupal, versión, mantenimiento y tiempos de respuesta.
+- `scan_security_drupal.py` — ejecuta el escaneo de seguridad Drupal y envía su reporte HTML.
 
 Dependencias
 
@@ -16,7 +17,13 @@ Las dependencias están en `requirements.txt`. Las principales son:
 
 Wrapper para cron
 
-Se añadió `run_cron_reports.sh`, un wrapper que activa el virtualenv (si existe) y ejecuta los scripts, dejando logs en:
+Se añadió `run_cron_reports.sh`, un wrapper que activa el virtualenv (si existe) y ejecuta los 3 envíos esperados:
+
+- `verificar_sitios.py`
+- `verificar_drupal.py`
+- `scan_security_drupal.py` a través de `run_verificar_drupal.sh`
+
+Deja logs en:
 
 - `cron.log` — salida de `verificar_sitios.py` y resumen final
 - `cron_drupal.log` — salida de `verificar_drupal.py`
@@ -38,6 +45,7 @@ Ejecución manual
 cd automatizacion_python_cron_reports
 python verificar_sitios.py
 python verificar_drupal.py
+python scan_security_drupal.py
 ```
 
 Si quieres que actualice `requirements.txt` (por ejemplo fijar versiones o añadir una nueva dependencia) o que haga ejecutable `run_cron_reports.sh`, lo hago ahora.
