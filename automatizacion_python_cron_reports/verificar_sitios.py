@@ -255,7 +255,7 @@ def generar_html(resultados: list[dict], fecha: str) -> str:
         <!-- HEADER -->
         <tr>
           <td style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);padding:30px 35px;">
-            <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:0.5px;">
+            <h1 style="margin:0;color:#031c42;font-size:22px;font-weight:700;letter-spacing:0.5px;">
               📊 Reporte de Verificación de Sitios Web
             </h1>
             <p style="margin:8px 0 0;color:#a0aec0;font-size:13px;">

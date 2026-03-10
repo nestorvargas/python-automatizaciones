@@ -316,8 +316,8 @@ def generar_html(resultados: list[dict], fecha: str) -> str:
                   <img src="logo_corbeta.svg" alt="Corbeta" style="height:56px;display:block;border:0;" />
                 </td>
                 <td style="vertical-align:middle;padding-left:16px;">
-                  <h1 style="margin:0;color:#1565c0;font-size:22px;font-weight:700;letter-spacing:0.5px;">
-                    🔧 Reporte de Estado — Sitios Drupal
+                  <h1 style="margin:0;color:#031c42;font-size:24px;font-weight:800;letter-spacing:0.4px;">
+                    Reporte de Estado — Sitios Drupal
                   </h1>
                   <p style="margin:8px 0 0;color:#a0aec0;font-size:13px;">
                     Generado el {fecha} &nbsp;|&nbsp; Colcomercio

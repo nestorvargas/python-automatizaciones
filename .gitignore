@@ -2,6 +2,7 @@
 .venv/
 env/
 .env
+**/.env
 
 # Byte-compiled / cache
 __pycache__/
@@ -9,6 +10,8 @@ __pycache__/
 
 # Logs
 *.log
+*.log.*
+logs/
 
 # Editor / OS
 .DS_Store
